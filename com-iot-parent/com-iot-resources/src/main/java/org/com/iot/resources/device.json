@@ -1,0 +1,13 @@
+{
+	topic:'device',
+	clientid:'adfadf',
+	data:{
+		mac:'123456789abc',
+		coding:'kjkjkljlkjhk',
+		type:'a',
+		name:'bingxiang',
+		description:'李开复拉空间放大来看',
+		dataType:'json',
+		createTime'20170805121412'
+	}
+}
