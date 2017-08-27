@@ -5,11 +5,17 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.MappedSuperclass;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="device")
+@Inheritance(strategy=InheritanceType.JOINED)
 public class DeviceDto implements Serializable{
 	
 	
@@ -17,18 +23,18 @@ public class DeviceDto implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private int id;
-	private String mac;
-	private String key;
-	private String coding;
-	private int deviceType;
-	private String desction;
-	private int dataType;
-	private int status;
-	private Date createTime;
-	private Date UpdateTime;
-	private String deviceName;
-	private int createUser;
+	protected int id;
+	protected String mac;
+	protected String key;
+	protected String coding;
+	protected int deviceType;
+	protected String desction;
+	protected int dataType;
+	protected int status;
+	protected Date createTime;
+	protected Date updateTime;
+	protected String deviceName;
+	protected int createUser;
 	
 	
 	
@@ -38,6 +44,7 @@ public class DeviceDto implements Serializable{
 
 	@Id
 	@Column(name="ID", unique = true, nullable = false)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public int getId() {
 		return id;
 	}
@@ -116,11 +123,11 @@ public class DeviceDto implements Serializable{
 
 	@Column(name="UPDATE_TIME")
 	public Date getUpdateTime() {
-		return UpdateTime;
+		return updateTime;
 	}
 
 	public void setUpdateTime(Date updateTime) {
-		UpdateTime = updateTime;
+		updateTime = updateTime;
 	}
 
 	@Column(name="DEVICE_NAME")
@@ -140,7 +147,4 @@ public class DeviceDto implements Serializable{
 	public void setCreateUser(int createUser) {
 		this.createUser = createUser;
 	}
-	
-	
-	
 }

@@ -39,4 +39,18 @@ public class StaticParameters {
 	public final static String TOPIC_DEVICE = "device";
 	public final static String TOPIC_DEVICE_DATA = "device_data";
 	
+	public final static String COMMAND_REGISTER_DEVICE = "COMMAND_REGISTER_DEVICE";
+	public final static String COMMAND_LOGINOUT_DEVICE = "COMMAND_LOGINOUT_DEVICE";
+	public final static String COMMAND_GETLATEST_DEVICE = "COMMAND_GETLATEST_DEVICE";
+	
+	
+	/**
+	 * property scope
+	 */
+	public final static String SCOPE_DEVICE_CLASS = "deviceclass";
+	public final static String SCOPE_WEB_APP = "webapp";
+	public final static String SCOPE_COMMAND_CLASS = "command";
+	
+	
+	
 }

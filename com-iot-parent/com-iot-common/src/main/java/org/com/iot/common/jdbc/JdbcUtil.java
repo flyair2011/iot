@@ -18,8 +18,11 @@ import org.apache.commons.dbcp2.BasicDataSourceFactory;
  * @author Mickle
  *
  */
+import org.apache.log4j.Logger;
 public class JdbcUtil {
 
+	static Logger logger = Logger.getLogger(JdbcUtil.class);
+	
 	private static BasicDataSource dataSource = null;
 	
 	static{
@@ -65,17 +68,12 @@ public class JdbcUtil {
 	
 	
 	public static List getSSObjectsBySql(String sql){
-
 		
-		// TODO Auto-generated method stub
-//		if(StringUtil.isNotEmpty(sql)){
-//			sql=sql.replaceAll("like \\?", "like ? escape'~'");
-//		}
-		System.out.println(sql);
+		logger.info(sql);
 		Connection conn = getConnection();
 		Statement stmt = null;
 		ResultSet res = null;
-		List<Object> list =  new ArrayList<Object>();
+		List<Object> list = null;
 		try {
 			stmt = conn.createStatement();
 			res = stmt.executeQuery(sql);
@@ -83,6 +81,7 @@ public class JdbcUtil {
 			int col = resdata.getColumnCount();
 			
 			if (col > 1){
+				list =  new ArrayList<Object>();
 				Object[] os = null;
 				while(res.next()){
 					os = new Object[col];
@@ -93,6 +92,7 @@ public class JdbcUtil {
 				}
 			}else{
 				Object o = null;
+				list =  new ArrayList<Object>();
 				while(res.next()){
 					o = res.getObject(1);
 					list.add(o);
@@ -115,6 +115,28 @@ public class JdbcUtil {
 		}
 		
 		return list;
+	}
+	
+	public static void dml(String sql){
+		logger.info(sql);
+		Connection conn = getConnection();
+		Statement stmt = null;
+		try {
+			stmt = conn.createStatement();
+			stmt.execute(sql);
+		} catch (SQLException e) {
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}finally {
+			try {
+				if (null != stmt)
+				stmt.close();
+				if (null != conn)
+				conn.close();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
 	}
 	
 	public static void main(String[] args) {
