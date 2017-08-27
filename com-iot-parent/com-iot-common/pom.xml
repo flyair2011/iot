@@ -1,15 +1,16 @@
 <?xml version="1.0"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" 
+    xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.iot</groupId>
     <artifactId>com-iot-parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <relativePath></relativePath>
   </parent>
-  <groupId>com.iot</groupId>
+  
   <artifactId>com-iot-common</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
   <name>com-iot-common</name>
   <url>http://maven.apache.org</url>
   <properties>
@@ -22,31 +23,31 @@
     	<groupId>com.iot</groupId>
     	<artifactId>com-iot-resources</artifactId>
     	<version>0.0.1-SNAPSHOT</version>
-    </dependency>
+   </dependency>
     
      <!-- json -->
-		<dependency>
-			<groupId>com.alibaba</groupId>
-			<artifactId>fastjson</artifactId>
-			<version>1.2.3</version>
-		</dependency>
+   <dependency>
+		<groupId>com.alibaba</groupId>
+		<artifactId>fastjson</artifactId>
+		<version>1.2.3</version>
+	</dependency>
 
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-annotations</artifactId>
-			<version>${jackson.version}</version>
-		</dependency>
+	<dependency>
+		<groupId>com.fasterxml.jackson.core</groupId>
+		<artifactId>jackson-annotations</artifactId>
+		<version>${jackson.version}</version>
+	</dependency>
 
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-core</artifactId>
-			<version>${jackson.version}</version>
-		</dependency>
+	<dependency>
+		<groupId>com.fasterxml.jackson.core</groupId>
+		<artifactId>jackson-core</artifactId>
+		<version>${jackson.version}</version>
+	</dependency>
 
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-databind</artifactId>
-			<version>${jackson.version}</version>
-		</dependency>
+	<dependency>
+		<groupId>com.fasterxml.jackson.core</groupId>
+		<artifactId>jackson-databind</artifactId>
+		<version>${jackson.version}</version>
+	</dependency>
   </dependencies>
 </project>

@@ -70,7 +70,7 @@ public class DeviceInfoAction extends BaseAction{
 				List<DeviceDto> devices = deviceService.getObjects("where createUser = ? ", params);
 				result.setObj(devices);
 			}else{
-				result.setMsg("Sessin 失效");
+				result.setMsg("Sessin fail");
 			}
 		} catch (Exception e) {
 			// TODO: handle exception

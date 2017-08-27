@@ -13,8 +13,6 @@ import java.util.Properties;
 
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.apache.commons.dbcp2.BasicDataSourceFactory;
-import org.com.iot.common.AESUtils;
-import org.com.iot.common.StringUtil;
 /**
  * JDBC公共类
  * @author Mickle
@@ -25,7 +23,6 @@ public class JdbcUtil {
 	private static BasicDataSource dataSource = null;
 	
 	static{
-
 		Properties p2 = new Properties();
 		Properties p = new Properties();
 		InputStream inStream = null;
@@ -66,14 +63,14 @@ public class JdbcUtil {
 		return conn;
 	}
 	
-	@SuppressWarnings("static-access")
+	
 	public static List getSSObjectsBySql(String sql){
 
 		
 		// TODO Auto-generated method stub
-		if(StringUtil.isNotEmpty(sql)){
-			sql=sql.replaceAll("like \\?", "like ? escape'~'");
-		}
+//		if(StringUtil.isNotEmpty(sql)){
+//			sql=sql.replaceAll("like \\?", "like ? escape'~'");
+//		}
 		System.out.println(sql);
 		Connection conn = getConnection();
 		Statement stmt = null;
